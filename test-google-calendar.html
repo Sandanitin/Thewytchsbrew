@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Calendar Test</title>
+</head>
+<body>
+    <h1>Google Calendar Integration Test</h1>
+    <button id="testButton">Test Google Calendar</button>
+    <div id="results"></div>
+
+    <script type="module">
+        import { getEvents, createEvent } from './src/utils/googleCalendar.js';
+
+        document.getElementById('testButton').addEventListener('click', async () => {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '<p>Testing Google Calendar integration...</p>';
+
+            try {
+                // Test fetching events
+                resultsDiv.innerHTML += '<p>Fetching events...</p>';
+                const events = await getEvents();
+                resultsDiv.innerHTML += `<p>Fetched ${events.length} events</p>`;
+                console.log('Events:', events);
+
+                // Test creating an event
+                resultsDiv.innerHTML += '<p>Creating test event...</p>';
+                const eventData = {
+                    title: 'Test Event',
+                    date: new Date().toISOString().split('T')[0],
+                    startTime: '10:00',
+                    endTime: '11:00',
+                    description: 'Test Description',
+                    location: 'Test Location',
+                    timeZone: 'UTC'
+                };
+
+                const result = await createEvent(eventData);
+                resultsDiv.innerHTML += `<p>Created event: ${result ? 'Success' : 'Failed'}</p>`;
+                console.log('Create event result:', result);
+            } catch (error) {
+                resultsDiv.innerHTML += `<p>Error: ${error.message}</p>`;
+                console.error('Error:', error);
+            }
+        });
+    </script>
+</body>
+</html>

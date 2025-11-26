@@ -7,22 +7,22 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: {
-          50: '#f3faf6',
-          100: '#e6f6ee',
-          200: '#c3ecd7',
-          300: '#8fddb7',
-          400: '#5dcb97',
-          500: '#3bb273',
-          600: '#2e8c59',
-          700: '#256b45',
-          800: '#1b4b31',
-          900: '#13341f',
-        },
+        'mystic-dark': '#121212', // Darker, almost black
+        'mystic-navy': '#1a1a1a', // Dark grey/brown for cards
+        'mystic-text': '#e5e5e5', // Off-white/Beige
+        'mystic-gold': '#d4af37', // Muted gold
+        'mystic-muted': '#a0a0b0',
       },
+      fontFamily: {
+        serif: ['Cinzel', 'serif'],
+        sans: ['Outfit', 'sans-serif'],
+      },
+      backgroundImage: {
+        'mystic-gradient': 'linear-gradient(to bottom, #121212, #1a1a1a)',
+      }
     },
   },
   plugins: [
     require('@tailwindcss/forms'),
   ],
-} 
+}
