@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import CalendarGrid from "./CalendarGrid";
 import { getEvents } from "../utils/googleCalendar";
+import { useBooking } from "../context/BookingContext";
 
 const isDateOnly = (value = "") => /^\d{4}-\d{2}-\d{2}$/.test(value);
 
@@ -17,6 +18,7 @@ const Events = () => {
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const { openBookingModal, getEventHeadcount } = useBooking();
 
   useEffect(() => {
     async function loadEvents() {
@@ -97,12 +99,13 @@ const Events = () => {
               <div className="flex-1 overflow-y-auto pr-2 space-y-4 custom-scrollbar">
                 {events.map((event) => {
                   const isPast = parseEventDate(event.end || event.start) < new Date();
+                  const headcount = getEventHeadcount(event.id);
+
                   return (
                     <div
                       key={event.id}
-                      className={`group relative bg-mystic-navy/60 backdrop-blur-md border border-white/5 rounded-lg overflow-hidden hover:border-mystic-gold/30 transition-all duration-300 hover:shadow-lg hover:shadow-mystic-gold/5 ${
-                        isPast ? "opacity-60 grayscale" : ""
-                      }`}
+                      className={`group relative bg-mystic-navy/60 backdrop-blur-md border border-white/5 rounded-lg overflow-hidden hover:border-mystic-gold/30 transition-all duration-300 hover:shadow-lg hover:shadow-mystic-gold/5 ${isPast ? "opacity-60 grayscale" : ""
+                        }`}
                     >
                       <div className="p-5">
                         <div className="flex justify-between items-start mb-2">
@@ -133,9 +136,19 @@ const Events = () => {
                           </p>
                         )}
 
-                        <div className="flex justify-between items-center pt-3 border-t border-white/5">
+                        {/* Headcount Display */}
+                        {headcount > 0 && (
+                          <div className="mb-3 flex items-center gap-2 text-xs text-mystic-gold/80">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                            <span>{headcount} {headcount === 1 ? 'person' : 'people'} booked</span>
+                          </div>
+                        )}
+
+                        <div className="flex flex-wrap gap-2 items-center pt-3 border-t border-white/5">
                           {event.location && (
-                            <span className="text-xs text-mystic-muted flex items-center gap-1 truncate max-w-[60%]">
+                            <span className="text-xs text-mystic-muted flex items-center gap-1 truncate flex-1">
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 className="h-3 w-3 flex-shrink-0"
@@ -150,14 +163,27 @@ const Events = () => {
                             </span>
                           )}
 
-                          <a
-                            href={event.link || "#"}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-xs font-bold text-mystic-gold uppercase tracking-widest hover:text-white transition-colors ml-auto flex items-center gap-1"
-                          >
-                            Details <span className="text-lg leading-none">&rsaquo;</span>
-                          </a>
+                          <div className="flex gap-2">
+                            {!isPast && (
+                              <button
+                                onClick={() => openBookingModal(event)}
+                                className="text-xs font-bold text-mystic-text bg-mystic-gold/20 hover:bg-mystic-gold hover:text-mystic-dark px-3 py-1.5 rounded transition-all uppercase tracking-widest flex items-center gap-1"
+                              >
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                Book Now
+                              </button>
+                            )}
+                            <a
+                              href={event.link || "#"}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-xs font-bold text-mystic-gold uppercase tracking-widest hover:text-white transition-colors flex items-center gap-1"
+                            >
+                              Details <span className="text-lg leading-none">&rsaquo;</span>
+                            </a>
+                          </div>
                         </div>
                       </div>
                     </div>

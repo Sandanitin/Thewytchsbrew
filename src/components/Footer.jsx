@@ -9,8 +9,8 @@ const Footer = () => {
                     {/* Brand */}
                     <div className="col-span-1 md:col-span-1">
                         <div className="flex items-center gap-3 mb-6">
-                            <img src="/logo.png" alt="Mystic Brews Logo" className="h-10 w-auto" />
-                            <h3 className="text-2xl font-serif font-bold text-mystic-text uppercase tracking-widest">Mystic Brews</h3>
+                            <span className="text-3xl">☕</span>
+                            <h3 className="text-2xl font-serif font-bold text-mystic-text tracking-wider">The Wytch's Brew</h3>
                         </div>
                         <p className="text-mystic-text/60 text-sm leading-relaxed mb-6 font-light">
                             A sanctuary for the modern witch. Tea, tarot, and transformation in the heart of the city.
@@ -42,7 +42,7 @@ const Footer = () => {
                                 Salem, MA 01970
                             </li>
                             <li>(555) 123-4567</li>
-                            <li>hello@mysticbrews.com</li>
+                            <li>hello@thewytchsbrew.com</li>
                         </ul>
                     </div>
 
@@ -58,7 +58,7 @@ const Footer = () => {
                 </div>
 
                 <div className="border-t border-white/5 pt-8 text-center text-xs text-mystic-text/40 uppercase tracking-widest font-light">
-                    <p>&copy; {new Date().getFullYear()} Mystic Brews. All rights reserved.</p>
+                    <p>&copy; {new Date().getFullYear()} The Wytch's Brew. All rights reserved.</p>
                 </div>
             </div>
         </footer>

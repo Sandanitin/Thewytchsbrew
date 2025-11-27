@@ -29,9 +29,9 @@ const Navbar = () => {
                 <div className="flex items-center justify-between h-20">
                     <div className="flex-shrink-0">
                         <a href="#" className="flex items-center gap-3 group">
-                            <img src="/logo.png" alt="Mystic Brews Logo" className="h-12 w-auto group-hover:opacity-80 transition-opacity" />
-                            <span className="text-2xl font-serif font-bold text-mystic-text tracking-widest uppercase">
-                                Mystic Brews
+                            <span className="text-4xl group-hover:scale-110 transition-transform">☕</span>
+                            <span className="text-2xl font-serif font-bold text-mystic-text tracking-wider">
+                                The Wytch's Brew
                             </span>
                         </a>
                     </div>

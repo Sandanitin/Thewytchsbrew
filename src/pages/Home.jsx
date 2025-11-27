@@ -7,6 +7,7 @@ import Events from '../components/Events';
 import About from '../components/About';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
+import BookingModal from '../components/BookingModal';
 
 const Home = () => {
     return (
@@ -21,6 +22,7 @@ const Home = () => {
                 <Contact />
             </main>
             <Footer />
+            <BookingModal />
         </div>
     );
 };
