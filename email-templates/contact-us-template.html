@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>New Contact Message</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 600;
+        }
+        .content {
+            padding: 30px;
+        }
+        .section {
+            margin-bottom: 25px;
+        }
+        .section-title {
+            font-size: 20px;
+            color: #2575fc;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        .details-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .details-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .details-table td:first-child {
+            font-weight: 600;
+            color: #495057;
+            width: 30%;
+        }
+        .footer {
+            background: #f8f9fa;
+            padding: 20px 30px;
+            text-align: center;
+            border-top: 1px solid #e9ecef;
+            font-size: 14px;
+            color: #6c757d;
+        }
+        .highlight {
+            background-color: #e7f1ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #2575fc;
+        }
+        .btn {
+            display: inline-block;
+            background: #2575fc;
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: 600;
+            margin: 15px 0;
+        }
+        .signature {
+            font-style: italic;
+            color: #6c757d;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>✉️ New Contact Message</h1>
+            <p>A visitor has reached out through your website</p>
+        </div>
+        
+        <div class="content">
+            <div class="highlight">
+                <p>Hello {{to_name}},</p>
+                <p>You have received a new message from a visitor to your website.</p>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">👤 Sender Information</h2>
+                <table class="details-table">
+                    <tr>
+                        <td>Name:</td>
+                        <td>{{from_name}}</td>
+                    </tr>
+                    <tr>
+                        <td>Email:</td>
+                        <td>{{from_email}}</td>
+                    </tr>
+                    <tr>
+                        <td>Phone:</td>
+                        <td>{{phone}}</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">💬 Message</h2>
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 4px solid #2575fc;">
+                    <p>{{message}}</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center;">
+                <a href="mailto:{{from_email}}" class="btn">Reply to Message</a>
+            </div>
+            
+            <p class="signature">
+                Best regards,<br>
+                The Wytch's Brew Website System
+            </p>
+        </div>
+        
+        <div class="footer">
+            <p>This message was automatically sent from your website contact form</p>
+            <p>© 2025 The Wytch's Brew. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,27 +1,18 @@
 import React, { useMemo } from "react";
+import { useBooking } from "../context/BookingContext";
 
 const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-const isDateOnly = (value = "") => /^\d{4}-\d{2}-\d{2}$/.test(value);
-
-const parseEventDate = (value) => {
-  if (!value) return new Date();
-  if (typeof value === "string" && isDateOnly(value)) {
-    const [year, month, day] = value.split("-").map(Number);
-    return new Date(year, month - 1, day);
-  }
-  return new Date(value);
+// Simplified date comparison that ignores time
+const isSameDate = (date1, date2) => {
+  return date1.getFullYear() === date2.getFullYear() &&
+         date1.getMonth() === date2.getMonth() &&
+         date1.getDate() === date2.getDate();
 };
-
-const normalizeDate = (value) => {
-  const date = parseEventDate(value);
-  date.setHours(0, 0, 0, 0);
-  return date;
-};
-
-const sameDay = (a, b) => a.getTime() === b.getTime();
 
 const CalendarGrid = ({ events = [] }) => {
+  const { openBookingModal, openCustomBookingModal } = useBooking();
+  
   const today = useMemo(() => {
     const now = new Date();
     now.setHours(0, 0, 0, 0);
@@ -31,15 +22,24 @@ const CalendarGrid = ({ events = [] }) => {
   const currentMonth = today.getMonth();
   const currentYear = today.getFullYear();
 
-  const eventsMap = useMemo(() => {
-    return events.reduce((map, event) => {
-      if (!event?.start) return map;
-      const key = normalizeDate(event.start).getTime();
-      map[key] = map[key] ? [...map[key], event] : [event];
-      return map;
-    }, {});
-  }, [events]);
+  const handleDayClick = (clickedDate, dayEvents) => {
+    console.log("Day clicked:", clickedDate, "Events:", dayEvents);
+    
+    // If there are events on this day, open booking for the first event
+    if (dayEvents.length > 0) {
+      console.log("Opening booking modal for event:", dayEvents[0]);
+      openBookingModal(dayEvents[0]);
+    } 
+    // If no events, we could show a different modal or create a custom event
+    else {
+      console.log("Clicked on empty day:", clickedDate);
+      // For now, we'll just log it. You might want to show a different modal
+      // for booking a custom session on this date
+      openCustomBookingModal(clickedDate);
+    }
+  };
 
+  // Generate calendar days
   const calendarDays = useMemo(() => {
     const firstDayOfMonth = new Date(currentYear, currentMonth, 1);
     const startDayOffset = firstDayOfMonth.getDay();
@@ -49,15 +49,27 @@ const CalendarGrid = ({ events = [] }) => {
     return Array.from({ length: 42 }, (_, index) => {
       const date = new Date(start);
       date.setDate(start.getDate() + index);
-      const key = date.getTime();
+      
+      // Find events for this specific date
+      const dayEvents = events.filter(event => {
+        if (!event?.start) return false;
+        try {
+          const eventDate = new Date(event.start);
+          return isSameDate(date, eventDate);
+        } catch (e) {
+          console.error("Error parsing event date:", event.start, e);
+          return false;
+        }
+      });
+
       return {
         date,
-        isToday: sameDay(date, today),
+        isToday: isSameDate(date, today),
         isCurrentMonth: date.getMonth() === currentMonth,
-        events: eventsMap[key] || [],
+        events: dayEvents,
       };
     });
-  }, [currentMonth, currentYear, today, eventsMap]);
+  }, [currentMonth, currentYear, today, events]);
 
   const monthHeading = new Intl.DateTimeFormat("en-US", {
     month: "long",
@@ -95,52 +107,64 @@ const CalendarGrid = ({ events = [] }) => {
           </div>
 
           <div className="grid grid-cols-7 gap-1 sm:gap-2 px-2 sm:px-6 pb-6">
-            {calendarDays.map(({ date, isToday, isCurrentMonth, events }) => (
-              <div
-                key={date.toISOString()}
-                className={`min-h-[60px] sm:min-h-[110px] rounded-lg border border-white/5 p-1 sm:p-2 flex flex-col gap-1 sm:gap-2 transition-colors ${isCurrentMonth ? "bg-white/3" : "bg-transparent opacity-50"
-                  } ${isToday ? "ring-2 ring-mystic-gold/60" : ""}`}
-              >
-                <div className="flex items-center justify-between text-[0.7rem] sm:text-xs">
-                  <span className="font-serif">{date.getDate()}</span>
-                  {events.length > 0 && (
-                    <span className="text-[0.5rem] sm:text-[0.6rem] text-mystic-gold uppercase tracking-widest">
-                      {events.length} {events.length === 1 ? "event" : "events"}
-                    </span>
-                  )}
-                </div>
-                <div className="flex flex-col gap-1 sm:gap-2 overflow-hidden">
-                  {events.slice(0, 1).map((event) => {
-                    const hasTime = typeof event.start === "string" && event.start.includes("T");
-                    return (
-                      <div
-                        key={event.id}
-                        className="bg-mystic-purple/20 border border-mystic-purple/30 rounded-md px-1 py-1 sm:px-2 sm:py-1"
-                      >
-                        <p className="text-[0.6rem] sm:text-[0.7rem] font-semibold text-mystic-gold line-clamp-1">
-                          {event.title}
-                        </p>
-                        {event.start && (
-                          <p className="text-[0.5rem] sm:text-[0.6rem] text-mystic-muted">
-                            {hasTime
-                              ? new Intl.DateTimeFormat("en-US", {
-                                hour: "numeric",
-                                minute: "2-digit",
-                              }).format(parseEventDate(event.start))
-                              : "All Day"}
+            {calendarDays.map(({ date, isToday, isCurrentMonth, events }) => {
+              return (
+                <div
+                  key={date.toISOString()}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleDayClick(date, events);
+                  }}
+                  className={`min-h-[60px] sm:min-h-[110px] rounded-lg border border-white/5 p-1 sm:p-2 flex flex-col gap-1 sm:gap-2 transition-colors cursor-pointer hover:bg-white/10 ${
+                    isCurrentMonth ? "bg-white/3" : "bg-transparent opacity-50"
+                  } ${isToday ? "ring-2 ring-mystic-gold/60" : ""} ${
+                    // Make all days clickable, not just days with events
+                    "hover:border-mystic-gold/50"
+                  }`}
+                >
+                  <div className="flex items-center justify-between text-[0.7rem] sm:text-xs">
+                    <span className="font-serif">{date.getDate()}</span>
+                    {events.length > 0 && (
+                      <span className="text-[0.5rem] sm:text-[0.6rem] text-mystic-gold uppercase tracking-widest">
+                        {events.length} {events.length === 1 ? "event" : "events"}
+                      </span>
+                    )}
+                  </div>
+                  <div className="flex flex-col gap-1 sm:gap-2 overflow-hidden">
+                    {events.slice(0, 1).map((event) => {
+                      // Check if the event has a time component
+                      const hasTime = event.start && event.start.includes("T") && !event.start.match(/^\d{4}-\d{2}-\d{2}$/);
+                      return (
+                        <div
+                          key={event.id}
+                          className="bg-mystic-purple/20 border border-mystic-purple/30 rounded-md px-1 py-1 sm:px-2 sm:py-1"
+                        >
+                          <p className="text-[0.6rem] sm:text-[0.7rem] font-semibold text-mystic-gold line-clamp-1">
+                            {event.title}
                           </p>
-                        )}
-                      </div>
-                    );
-                  })}
-                  {events.length > 1 && (
-                    <p className="text-[0.55rem] sm:text-[0.65rem] text-mystic-muted">
-                      +{events.length - 1} more
-                    </p>
-                  )}
+                          {event.start && (
+                            <p className="text-[0.5rem] sm:text-[0.6rem] text-mystic-muted">
+                              {hasTime
+                                ? new Intl.DateTimeFormat("en-US", {
+                                  hour: "numeric",
+                                  minute: "2-digit",
+                                  hour12: true,
+                                }).format(new Date(event.start))
+                                : "All Day"}
+                            </p>
+                          )}
+                        </div>
+                      );
+                    })}
+                    {events.length > 1 && (
+                      <p className="text-[0.55rem] sm:text-[0.65rem] text-mystic-muted">
+                        +{events.length - 1} more
+                      </p>
+                    )}
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>

@@ -24,9 +24,11 @@ const Events = () => {
     async function loadEvents() {
       try {
         const googleEvents = await getEvents();
+        console.log("Loaded events from Google Calendar:", googleEvents);
         const sortedEvents = (googleEvents || []).sort(
           (a, b) => parseEventDate(a.start) - parseEventDate(b.start)
         );
+        console.log("Sorted events:", sortedEvents);
         setEvents(sortedEvents);
       } catch (err) {
         console.error("Failed to load events", err);
@@ -87,6 +89,7 @@ const Events = () => {
           <div className="flex flex-col lg:flex-row gap-8 max-w-7xl mx-auto">
             <div className="lg:w-2/3">
               <div className="bg-white/5 backdrop-blur-sm rounded-xl p-1 border border-white/10 shadow-2xl">
+                {console.log("Passing events to CalendarGrid:", events)}
                 <CalendarGrid events={events} />
               </div>
             </div>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Booking Confirmation</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fdfdfd;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            overflow: hidden;
+            border: 1px solid #eee;
+        }
+        .header {
+            background: linear-gradient(135deg, #8e2de2 0%, #4a00e0 100%);
+            color: white;
+            padding: 35px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .header p {
+            margin: 10px 0 0;
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        .content {
+            padding: 30px;
+        }
+        .section {
+            margin-bottom: 25px;
+        }
+        .section-title {
+            font-size: 22px;
+            color: #4a00e0;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 12px;
+            margin-top: 0;
+        }
+        .details-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .details-table td {
+            padding: 14px 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .details-table td:first-child {
+            font-weight: 600;
+            color: #555;
+            width: 35%;
+        }
+        .footer {
+            background: #f9f9f9;
+            padding: 25px 30px;
+            text-align: center;
+            border-top: 1px solid #f0f0f0;
+            font-size: 15px;
+            color: #777;
+        }
+        .confirmation-box {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf9 100%);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+            text-align: center;
+            border: 1px solid #d0ddf0;
+        }
+        .confirmation-box h2 {
+            color: #4a00e0;
+            margin-top: 0;
+        }
+        .signature {
+            font-style: italic;
+            color: #666;
+            margin-top: 30px;
+            text-align: center;
+        }
+        .divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, #e0e0e0, transparent);
+            margin: 30px 0;
+        }
+        .contact-info {
+            background: #f8f9ff;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #8e2de2;
+        }
+        .contact-info p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🍵 Booking Confirmed</h1>
+            <p>Your session at The Wytch's Brew</p>
+        </div>
+        
+        <div class="content">
+            <div class="confirmation-box">
+                <h2>Thank You, {{to_name}}!</h2>
+                <p>Your booking request for <strong>{{event_title}}</strong> has been received.</p>
+                <p>We're brewing something special for you.</p>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">📅 Session Details</h2>
+                <table class="details-table">
+                    <tr>
+                        <td>Session:</td>
+                        <td>{{event_title}}</td>
+                    </tr>
+                    <tr>
+                        <td>Date:</td>
+                        <td>{{event_date}}</td>
+                    </tr>
+                    <tr>
+                        <td>Location:</td>
+                        <td>{{location}}</td>
+                    </tr>
+                    <tr>
+                        <td>Attendees:</td>
+                        <td>{{number_of_attendees}}</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <div class="section">
+                <h2 class="section-title">📝 Your Request</h2>
+                <div class="contact-info">
+                    <p><strong>Special Requests:</strong></p>
+                    <p>{{notes}}</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">📍 Location & Contact</h2>
+                <div class="contact-info">
+                    <p><strong>Address:</strong> The Wytch's Brew Sanctuary</p>
+                    <p><strong>Email:</strong> info@thewytchsbrew.com</p>
+                    <p><strong>Phone:</strong> (123) 456-7890</p>
+                </div>
+            </div>
+            
+            <div class="signature">
+                <p>We look forward to welcoming you to our mystical tea sanctuary.</p>
+                <p>May your cup overflow with enchantment and peace.</p>
+                <p><strong>— The Wytch's Brew Team</strong></p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>This confirmation was automatically generated by The Wytch's Brew Booking System</p>
+            <p>If you have any questions, please contact us at info@thewytchsbrew.com</p>
+            <p>© 2025 The Wytch's Brew. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>

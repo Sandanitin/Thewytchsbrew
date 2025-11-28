@@ -20,6 +20,21 @@ export const BookingProvider = ({ children }) => {
         setIsBookingModalOpen(true);
     };
 
+    const openCustomBookingModal = (date) => {
+        // Create a custom event for the selected date
+        const customEvent = {
+            id: `custom-${date.toISOString()}`,
+            title: "Private Session Request",
+            description: "Request a private tea session or consultation",
+            location: "The Wytch's Brew",
+            start: date.toISOString(),
+            end: new Date(date.getTime() + 60 * 60 * 1000).toISOString(), // 1 hour later
+            isCustom: true
+        };
+        setSelectedEvent(customEvent);
+        setIsBookingModalOpen(true);
+    };
+
     const closeBookingModal = () => {
         setIsBookingModalOpen(false);
         setSelectedEvent(null);
@@ -60,6 +75,7 @@ export const BookingProvider = ({ children }) => {
         isBookingModalOpen,
         selectedEvent,
         openBookingModal,
+        openCustomBookingModal,
         closeBookingModal,
         createBooking,
         getEventBookings,
