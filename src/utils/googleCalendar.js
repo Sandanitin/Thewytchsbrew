@@ -17,7 +17,10 @@ const FALLBACK_EVENTS = [
 ];
 
 const buildUrl = () => {
-  const timeMin = new Date().toISOString();
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const timeMin = today.toISOString();
+
   const params = new URLSearchParams({
     key: GOOGLE_API_KEY || "",
     timeMin,
