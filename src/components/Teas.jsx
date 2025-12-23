@@ -1,75 +1,71 @@
 import React from 'react';
 
 const Teas = () => {
-    const teas = [
+    const teaMenu = [
         {
-            name: 'Moonlight Meditation',
-            description: 'A calming blend of chamomile, lavender, and mugwort for dreamwork and intuition.',
-            image: '/tea_calming.png'
+            category: 'Hand-Blended Teas',
+            icon: '🍃',
+            items: [
+                { name: 'Moonlight Meditation', desc: 'Chamomile, lavender, and mugwort for dreamwork.' },
+                { name: 'Psychic Awakening', desc: 'Yerba mate, peppermint, and clary sage.' },
+                { name: 'Protection Potion', desc: 'Black tea, cinnamon, and rosemary.' },
+                { name: 'Love & Manifestation', desc: 'Rose, hibiscus, and orange peel.' },
+            ]
         },
         {
-            name: 'Psychic Awakening',
-            description: 'Enhance your intuition with this blend of yerba mate, peppermint, and clary sage.',
-            image: '/tea_energy.png'
+            category: 'Metaphysical Waters',
+            icon: '💧',
+            items: [
+                { name: 'CBD Sparkling Water', desc: 'Calming infusions for energetic balance.' },
+                { name: 'Infused Moon Water', desc: 'Charged under the full moon for intention setting.' },
+            ]
         },
         {
-            name: 'Protection Potion',
-            description: 'A grounding blend of black tea, cinnamon, and rosemary for energetic shielding.',
-            image: '/tea_forest.png'
-        },
-        {
-            name: 'Love & Manifestation',
-            description: 'Attract positive energy with this rose, hibiscus, and orange peel infusion.',
-            image: '/tea_energy.png'
-        },
-        {
-            name: 'Divination Delight',
-            description: 'A blend to open the third eye with mugwort, jasmine, and star anise.',
-            image: '/tea_calming.png'
-        },
-        {
-            name: 'Forest Spirit',
-            description: 'Connect with nature using this pine needle, juniper berry, and nettle infusion.',
-            image: '/tea_forest.png'
-        },
-        {
-            name: 'Golden Aura',
-            description: 'Radiate positivity with turmeric, ginger, and lemon balm.',
-            image: '/tea_energy.png'
-        },
-        {
-            name: 'Shadow Work',
-            description: 'Support deep inner work with elderberry, valerian root, and dark chocolate nibs.',
-            image: '/tea_calming.png'
+            category: 'Sacred Sweets',
+            icon: '🌙',
+            items: [
+                { name: 'Assorted Persian Desserts', desc: 'Traditional delicacies from the East.' },
+                { name: 'Banana Magic Cookies', desc: 'Soft-baked comfort for the soul.' },
+                { name: 'Pizelle Cookies', desc: 'Crisp, ornate traditional Italian treats.' },
+            ]
         }
     ];
 
     return (
         <section id="teas" className="py-20 bg-mystic-navy relative border-t border-white/5">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 className="section-title">Apothecary</h2>
+                <h2 className="section-title">Teas + More</h2>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                    {teas.map((tea, index) => (
-                        <div key={index} className="group cursor-pointer">
-                            <div className="h-64 overflow-hidden relative mb-4 border border-white/5">
-                                <img
-                                    src={tea.image}
-                                    alt={tea.name}
-                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 grayscale group-hover:grayscale-0"
-                                />
-                            </div>
+                <div className="flex flex-col lg:flex-row gap-12 items-start mb-16">
+                    <div className="lg:w-1/3">
+                        <img
+                            src="/IMG_1137.JPEG"
+                            alt="Mystical Apothecary"
+                            className="w-full h-[400px] object-cover border border-white/5 grayscale hover:grayscale-0 transition-all duration-700"
+                        />
+                    </div>
+                    <div className="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-8">
+                        {teaMenu.map((cat, idx) => (
+                            <div key={idx} className="relative p-8 border border-white/5 bg-mystic-dark/20 hover:border-mystic-gold/20 transition-all duration-700 group">
+                                <div className="text-3xl mb-6 opacity-80 group-hover:opacity-100 transition-opacity">{cat.icon}</div>
+                                <h3 className="text-xl font-serif font-bold text-mystic-text mb-8 uppercase tracking-widest border-b border-mystic-gold/10 pb-4">{cat.category}</h3>
 
-                            <div className="text-center">
-                                <h3 className="text-lg font-serif font-bold text-mystic-text mb-1 uppercase tracking-wider">{tea.name}</h3>
-                                <p className="text-mystic-text/60 text-xs mb-3 h-12 overflow-hidden leading-relaxed">{tea.description}</p>
+                                <div className="space-y-6">
+                                    {cat.items.map((item, i) => (
+                                        <div key={i}>
+                                            <h4 className="text-mystic-gold font-serif text-lg mb-1">{item.name}</h4>
+                                            <p className="text-mystic-text/50 text-xs italic leading-relaxed">{item.desc}</p>
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
 
-                <div className="text-center mt-16">
-                    <button className="btn-secondary">View All Blends</button>
+                <div className="text-center mt-20">
+                    <p className="text-mystic-text/40 text-xs uppercase tracking-[0.2em] mb-8">Crafted with Intention</p>
+                    <button className="btn-secondary">Visit Our Shop</button>
                 </div>
             </div>
         </section>

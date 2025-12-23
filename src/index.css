@@ -15,8 +15,10 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #0f0f1a;
-  color: #e0e0e0;
+  background-color: #0a0a09;
+  /* mystic-dark */
+  color: #f4f4f0;
+  /* mystic-text */
   overflow-x: hidden;
 }
 
@@ -27,21 +29,22 @@ body {
 
 @layer components {
   .btn-primary {
-    @apply px-8 py-3 bg-mystic-dark text-mystic-text border border-mystic-text/30 font-sans uppercase tracking-widest text-sm hover:bg-mystic-text hover:text-mystic-dark transition-all duration-300;
+    @apply px-8 py-3 bg-mystic-gold text-mystic-dark font-serif font-bold uppercase tracking-[0.2em] text-xs hover:bg-mystic-text transition-all duration-500 shadow-lg shadow-mystic-gold/5;
   }
 
   .btn-secondary {
-    @apply px-8 py-3 bg-transparent text-mystic-text border border-mystic-text/30 font-sans uppercase tracking-widest text-sm hover:bg-mystic-text hover:text-mystic-dark transition-all duration-300;
+    @apply px-8 py-3 bg-transparent text-mystic-gold border border-mystic-gold/30 font-serif font-bold uppercase tracking-[0.2em] text-xs hover:border-mystic-text hover:text-mystic-text transition-all duration-500;
   }
 
   .gothic-card {
-    @apply bg-mystic-navy border border-white/5 p-8 hover:border-mystic-gold/30 transition-colors duration-500;
+    @apply bg-mystic-navy/40 backdrop-blur-sm border border-white/5 p-8 hover:border-mystic-gold/40 transition-all duration-700 hover:shadow-2xl hover:shadow-mystic-gold/5;
   }
 
   .section-title {
-    @apply text-4xl md:text-5xl font-serif font-bold text-center mb-16 text-mystic-text uppercase tracking-widest;
+    @apply text-4xl md:text-5xl font-serif font-bold text-center mb-16 text-mystic-text uppercase tracking-[0.3em];
+    text-shadow: 0 0 20px rgba(197, 160, 89, 0.2);
   }
-  
+
   /* Custom scrollbar */
   .custom-scrollbar::-webkit-scrollbar {
     width: 6px;

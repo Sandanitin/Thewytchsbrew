@@ -13,7 +13,7 @@ const Footer = () => {
                             <h3 className="text-2xl font-serif font-bold text-mystic-text tracking-wider">The Wytch's Brew</h3>
                         </div>
                         <p className="text-mystic-text/60 text-sm leading-relaxed mb-6 font-light">
-                            A sanctuary for the modern witch. Tea, tarot, and transformation in the heart of the city.
+                            A cozy tea room and metaphysical haven where every cup is crafted with intention and every item carries a touch of magic.
                         </p>
                         <div className="flex space-x-4">
                             <a href="#" className="text-mystic-text hover:text-mystic-gold transition-colors"><FaFacebook size={20} /></a>

@@ -7,11 +7,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        'mystic-dark': '#121212', // Darker, almost black
-        'mystic-navy': '#1a1a1a', // Dark grey/brown for cards
-        'mystic-text': '#e5e5e5', // Off-white/Beige
-        'mystic-gold': '#d4af37', // Muted gold
-        'mystic-muted': '#a0a0b0',
+        'mystic-dark': '#0a0a09', // Warm black
+        'mystic-navy': '#141512', // Deep umber/charcoal
+        'mystic-text': '#f4f4f0', // Warm cream
+        'mystic-gold': '#c5a059', // Antique gold
+        'mystic-muted': '#8e8e8e',
       },
       fontFamily: {
         serif: ['Cinzel', 'serif'],
