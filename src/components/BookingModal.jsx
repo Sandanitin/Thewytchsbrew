@@ -47,7 +47,7 @@ const BookingModal = () => {
         phone: formData.phone,
         number_of_attendees: formData.numberOfAttendees,
         event_title: selectedEvent.title,
-        event_date: selectedEvent?.isCustom 
+        event_date: selectedEvent?.isCustom
           ? formatDateWithoutTime(selectedEvent.start)
           : formatEventDate(selectedEvent.start),
         location: selectedEvent.location || "The Wytch's Brew",
@@ -57,22 +57,6 @@ const BookingModal = () => {
 
       // Send email to business
       await sendBookingNotification(templateParams);
-
-      // Send confirmation email to customer
-      const customerTemplateParams = {
-        to_name: formData.name,
-        from_name: "The Wytch's Brew Team",
-        event_title: selectedEvent.title,
-        event_date: selectedEvent?.isCustom 
-          ? formatDateWithoutTime(selectedEvent.start)
-          : formatEventDate(selectedEvent.start),
-        location: selectedEvent.location || "The Wytch's Brew",
-        number_of_attendees: formData.numberOfAttendees,
-        notes: formData.notes || "No special requests",
-        to_email: formData.email
-      };
-
-      await sendCustomerConfirmation(customerTemplateParams);
     } catch (emailError) {
       console.error('Email sending failed:', emailError);
       // Note: We're not stopping the booking process even if email fails
@@ -83,7 +67,7 @@ const BookingModal = () => {
     if (result.success) {
       setSubmitStatus({
         type: 'success',
-        message: selectedEvent?.isCustom 
+        message: selectedEvent?.isCustom
           ? `Thank you for your request! We'll contact you soon to schedule your private session.`
           : `Successfully booked! We'll see you at ${selectedEvent.title}. A confirmation email has been sent.`
       });
@@ -165,7 +149,7 @@ const BookingModal = () => {
               <span className="text-lg font-medium">{selectedEvent.title}</span>
             </div>
             <p className="text-mystic-muted text-sm mt-2">
-              {selectedEvent?.isCustom 
+              {selectedEvent?.isCustom
                 ? formatDateWithoutTime(selectedEvent.start)
                 : formatEventDate(selectedEvent.start)}
             </p>
@@ -186,7 +170,7 @@ const BookingModal = () => {
             <div className={`mb-6 p-4 rounded-lg border ${submitStatus.type === 'success'
               ? 'bg-green-900/20 border-green-500/30 text-green-200'
               : 'bg-red-900/20 border-red-500/30 text-red-200'
-            }`}>
+              }`}>
               {submitStatus.message}
             </div>
           )}
