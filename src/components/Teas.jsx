@@ -6,10 +6,19 @@ const Teas = () => {
             category: 'Hand-Blended Teas',
             icon: '🍃',
             items: [
-                { name: 'Moonlight Meditation', desc: 'Chamomile, lavender, and mugwort for dreamwork.' },
-                { name: 'Psychic Awakening', desc: 'Yerba mate, peppermint, and clary sage.' },
-                { name: 'Protection Potion', desc: 'Black tea, cinnamon, and rosemary.' },
-                { name: 'Love & Manifestation', desc: 'Rose, hibiscus, and orange peel.' },
+                { name: 'Lavendar Mint' },
+                { name: 'Tumeric Ginger' },
+                { name: 'Blueberry Hibiscus-Rooibos' },
+                { name: 'Jade Cloud' },
+                { name: 'Rishi Valerian Dream' },
+                { name: 'Yuzu Peach Green' },
+                { name: 'Jasmine' },
+                { name: 'English Breakfast' },
+                { name: 'Chamomille Medley' },
+                { name: 'Peppermint' },
+                { name: 'Matcha Super Green' },
+                { name: 'Early Grey' },
+                { name: 'Elderberry Hibiscus Iced Tea' },
             ]
         },
         {
@@ -54,7 +63,7 @@ const Teas = () => {
                                     {cat.items.map((item, i) => (
                                         <div key={i}>
                                             <h4 className="text-mystic-gold font-serif text-lg mb-1">{item.name}</h4>
-                                            <p className="text-mystic-text/50 text-xs italic leading-relaxed">{item.desc}</p>
+                                            {item.desc && <p className="text-mystic-text/50 text-xs italic leading-relaxed">{item.desc}</p>}
                                         </div>
                                     ))}
                                 </div>
@@ -64,8 +73,13 @@ const Teas = () => {
                 </div>
 
                 <div className="text-center mt-20">
-                    <p className="text-mystic-text/40 text-xs uppercase tracking-[0.2em] mb-8">Crafted with Intention</p>
-                    <button className="btn-secondary">Visit Our Shop</button>
+                    <p className="text-mystic-text/60 text-sm uppercase tracking-[0.3em] font-serif mb-12 border-y border-mystic-gold/20 py-4 inline-block px-8">
+                        Ask us about our flavored syrups
+                    </p>
+                    <div className="mt-8">
+                        <p className="text-mystic-text/40 text-xs uppercase tracking-[0.2em] mb-8">Crafted with Intention</p>
+                        <button className="btn-secondary">Visit Our Shop</button>
+                    </div>
                 </div>
             </div>
         </section>
