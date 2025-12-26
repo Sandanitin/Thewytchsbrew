@@ -38,11 +38,9 @@ const Footer = () => {
                         <h4 className="text-sm font-bold text-mystic-gold uppercase tracking-widest mb-6">Visit</h4>
                         <ul className="space-y-4 text-sm text-mystic-text/70 font-light">
                             <li className="leading-relaxed">
-                                123 Moonlit Avenue<br />
-                                Salem, MA 01970
+                                757 Santa Fe Dr<br />
+                                Denver, Colorado 80204
                             </li>
-                            <li>(555) 123-4567</li>
-                            <li>hello@thewytchsbrew.com</li>
                         </ul>
                     </div>
 
@@ -50,9 +48,8 @@ const Footer = () => {
                     <div>
                         <h4 className="text-sm font-bold text-mystic-gold uppercase tracking-widest mb-6">Hours</h4>
                         <ul className="space-y-4 text-sm text-mystic-text/70 font-light">
-                            <li className="flex justify-between"><span>Mon - Fri</span> <span>10am - 8pm</span></li>
-                            <li className="flex justify-between"><span>Sat</span> <span>11am - 9pm</span></li>
-                            <li className="flex justify-between"><span>Sun</span> <span>11am - 6pm</span></li>
+                            <li className="flex justify-between"><span>Mon</span> <span className="text-mystic-gold/80">CLOSED</span></li>
+                            <li className="flex justify-between"><span>Tue - Sun</span> <span>8am - 8pm</span></li>
                         </ul>
                     </div>
                 </div>

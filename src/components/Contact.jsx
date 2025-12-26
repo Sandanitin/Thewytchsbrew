@@ -39,23 +39,7 @@ const Contact = () => {
                                 <div className="text-mystic-gold mt-1">📍</div>
                                 <div>
                                     <h4 className="font-bold text-mystic-text uppercase tracking-wider text-sm">Location</h4>
-                                    <p className="text-mystic-text/60 font-light">123 Moonlit Avenue, Salem, MA 01970</p>
-                                </div>
-                            </div>
-
-                            <div className="flex items-start gap-4">
-                                <div className="text-mystic-gold mt-1">📧</div>
-                                <div>
-                                    <h4 className="font-bold text-mystic-text uppercase tracking-wider text-sm">Email</h4>
-                                    <p className="text-mystic-text/60 font-light">hello@mysticbrews.com</p>
-                                </div>
-                            </div>
-
-                            <div className="flex items-start gap-4">
-                                <div className="text-mystic-gold mt-1">📞</div>
-                                <div>
-                                    <h4 className="font-bold text-mystic-text uppercase tracking-wider text-sm">Phone</h4>
-                                    <p className="text-mystic-text/60 font-light">(555) 123-4567</p>
+                                    <p className="text-mystic-text/60 font-light">757 Santa Fe Dr, Denver, Colorado 80204</p>
                                 </div>
                             </div>
                         </div>
@@ -63,9 +47,13 @@ const Contact = () => {
                         <div className="pt-8 border-t border-white/5">
                             <h4 className="font-bold text-mystic-text uppercase tracking-wider text-sm mb-4">Sanctuary Hours</h4>
                             <ul className="space-y-2 text-mystic-text/60 font-light text-sm">
-                                <li className="flex justify-between max-w-xs"><span>Mon - Fri</span> <span>10:00 AM - 8:00 PM</span></li>
-                                <li className="flex justify-between max-w-xs"><span>Saturday</span> <span>11:00 AM - 9:00 PM</span></li>
-                                <li className="flex justify-between max-w-xs"><span>Sunday</span> <span>11:00 AM - 6:00 PM</span></li>
+                                <li className="flex justify-between max-w-xs"><span>Monday</span> <span className="text-mystic-gold/80">CLOSED</span></li>
+                                <li className="flex justify-between max-w-xs"><span>Tuesday</span> <span>8:00 AM - 8:00 PM</span></li>
+                                <li className="flex justify-between max-w-xs"><span>Wednesday</span> <span>8:00 AM - 8:00 PM</span></li>
+                                <li className="flex justify-between max-w-xs"><span>Thursday</span> <span>8:00 AM - 8:00 PM</span></li>
+                                <li className="flex justify-between max-w-xs"><span>Friday</span> <span>8:00 AM - 8:00 PM</span></li>
+                                <li className="flex justify-between max-w-xs"><span>Saturday</span> <span>8:00 AM - 8:00 PM</span></li>
+                                <li className="flex justify-between max-w-xs"><span>Sunday</span> <span>8:00 AM - 8:00 PM</span></li>
                             </ul>
                         </div>
                     </div>
