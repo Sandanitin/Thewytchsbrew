@@ -3,7 +3,7 @@ import React from 'react';
 const Teas = () => {
     const teaMenu = [
         {
-            category: 'Hand-Blended Teas',
+            category: 'Organic Teas and Botanicals',
             icon: '🍃',
             items: [
                 { name: 'Lavendar Mint' },

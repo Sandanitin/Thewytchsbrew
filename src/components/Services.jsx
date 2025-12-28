@@ -7,12 +7,12 @@ const Services = () => {
             tagline: 'By Appointment Only',
             icon: '🔮',
             items: [
-                { name: 'Mini 3-Card Reading', price: '$11', desc: 'Quick clarity pull for fast insight and energetic check-ins.' },
-                { name: 'Past–Present–Future', price: '$22', desc: 'Reveals the story behind, the truth within, and the path ahead.' },
-                { name: '6-Card Deep Dive', price: '$33', desc: 'Exploring influences, blocks, choices, and overall direction.' },
-                { name: 'Relationship Reading', price: '$33', desc: 'Clarity on feelings, intentions, and potential outcomes.' },
-                { name: 'Career & Life Path', price: '$33', desc: 'Guidance for direction, purpose, and next steps.' },
-                { name: '12-Month Forecast', price: '$44', desc: 'A month-by-month look into the year ahead.' },
+                { name: 'Mini 3-Card Reading', desc: 'Quick clarity pull for fast insight and energetic check-ins.' },
+                { name: 'Past–Present–Future', desc: 'Reveals the story behind, the truth within, and the path ahead.' },
+                { name: '6-Card Deep Dive', desc: 'Exploring influences, blocks, choices, and overall direction.' },
+                { name: 'Relationship Reading', desc: 'Clarity on feelings, intentions, and potential outcomes.' },
+                { name: 'Career & Life Path', desc: 'Guidance for direction, purpose, and next steps.' },
+                { name: '12-Month Forecast', desc: 'A month-by-month look into the year ahead.' },
             ]
         },
         {
@@ -20,10 +20,9 @@ const Services = () => {
             tagline: 'Vibrational Medicine',
             icon: '🔔',
             items: [
-                { name: 'In-Store Sound Massage', price: '$2.22/min', desc: 'Himalayan Singing Bowls session (5-40 mins).' },
-                { name: '1:1 & Group Sound Baths', price: '$2.22/min', desc: 'Immersive vibrational experiences at your location.' },
-                { name: 'Travel Fee', price: '$0.50/min', desc: 'Travel time (up to 30 miles from our shop).' },
-                { name: 'After-Party Decompress', price: 'Custom', desc: '3-hour restoration for events, weddings, and retreats.' },
+                { name: 'In-Store Sound Massage', desc: 'Himalayan Singing Bowls session (5-40 mins).' },
+                { name: '1:1 & Group Sound Baths', desc: 'Immersive vibrational experiences at your location.' },
+                { name: 'After-Party Decompress', desc: '3-hour restoration for events, weddings, and retreats.' },
             ]
         },
         {
@@ -31,8 +30,8 @@ const Services = () => {
             tagline: 'Inner Stillness',
             icon: '✨',
             items: [
-                { name: 'Mindfulness-Based', price: '$15', desc: '45-minute guide into the present moment.' },
-                { name: 'Transcendental-Based', price: '$25', desc: '45-minute journey beyond everyday thought.' },
+                { name: 'Mindfulness-Based', desc: '45-minute guide into the present moment.' },
+                { name: 'Transcendental-Based', desc: '45-minute journey beyond everyday thought.' },
             ]
         }
     ];
@@ -54,7 +53,6 @@ const Services = () => {
                                     <div key={i} className="group cursor-default">
                                         <div className="flex justify-between items-baseline mb-2">
                                             <h4 className="text-mystic-text font-serif text-lg group-hover:text-mystic-gold transition-colors">{item.name}</h4>
-                                            <span className="text-mystic-gold font-sans text-sm font-bold ml-4">{item.price}</span>
                                         </div>
                                         <p className="text-mystic-text/50 text-xs leading-relaxed italic">{item.desc}</p>
                                     </div>
@@ -70,7 +68,7 @@ const Services = () => {
 
                 <div className="mt-20 text-center">
                     <p className="text-mystic-text/60 italic text-sm">
-                        * All readings and private sessions are by appointment only. Travel fees apply for off-site sound meditations.
+                        * All readings and private sessions are by appointment only.
                     </p>
                 </div>
             </div>
