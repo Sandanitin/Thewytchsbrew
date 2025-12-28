@@ -41,14 +41,14 @@ const Services = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <h2 className="section-title">Sacred Services</h2>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-stretch">
                     {serviceCategories.map((cat, idx) => (
-                        <div key={idx} className="gothic-card flex flex-col h-full border-mystic-gold/10">
+                        <div key={idx} className="gothic-card flex flex-col border-mystic-gold/10">
                             <div className="text-4xl mb-4 text-mystic-gold/80">{cat.icon}</div>
                             <h3 className="text-2xl font-serif font-bold text-mystic-text mb-1 uppercase tracking-wider">{cat.category}</h3>
                             <p className="text-mystic-gold/60 text-xs uppercase tracking-widest mb-8 font-semibold italic">{cat.tagline}</p>
 
-                            <div className="space-y-8 flex-grow">
+                            <div className="space-y-8 flex-1">
                                 {cat.items.map((item, i) => (
                                     <div key={i} className="group cursor-default">
                                         <div className="flex justify-between items-baseline mb-2">
@@ -59,7 +59,7 @@ const Services = () => {
                                 ))}
                             </div>
 
-                            <button className="mt-12 w-full py-3 border border-mystic-gold/20 text-mystic-gold hover:bg-mystic-gold hover:text-mystic-dark transition-all duration-500 uppercase tracking-widest text-xs font-bold">
+                            <button className="mt-auto pt-12 w-full py-3 border border-mystic-gold/20 text-mystic-gold hover:bg-mystic-gold hover:text-mystic-dark transition-all duration-500 uppercase tracking-widest text-xs font-bold">
                                 Reserve Session
                             </button>
                         </div>

@@ -42,6 +42,13 @@ const Contact = () => {
                                     <p className="text-mystic-text/60 font-light">757 Santa Fe Dr, Denver, Colorado 80204</p>
                                 </div>
                             </div>
+                            <div className="flex items-start gap-4">
+                                <div className="text-mystic-gold mt-1">✉️</div>
+                                <div>
+                                    <h4 className="font-bold text-mystic-text uppercase tracking-wider text-sm">Email</h4>
+                                    <a href="mailto:maewytch@thewytchsbrew.com" className="text-mystic-text/60 font-light hover:text-mystic-gold transition-colors">maewytch@thewytchsbrew.com</a>
+                                </div>
+                            </div>
                         </div>
 
                         <div className="pt-8 border-t border-white/5">

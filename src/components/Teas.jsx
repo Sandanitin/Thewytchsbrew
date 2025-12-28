@@ -48,8 +48,8 @@ const Teas = () => {
                 <div className="flex flex-col lg:flex-row gap-12 items-start mb-16">
                     <div className="lg:w-1/3">
                         <img
-                            src="/IMG_1137.JPEG"
-                            alt="Mystical Apothecary"
+                            src="/tea-jars.png"
+                            alt="Tea Jars Collection"
                             className="w-full h-[400px] object-cover border border-white/5 grayscale hover:grayscale-0 transition-all duration-700"
                         />
                     </div>
@@ -69,6 +69,60 @@ const Teas = () => {
                                 </div>
                             </div>
                         ))}
+                    </div>
+                </div>
+
+                {/* Rishi Tea Brand Section */}
+                <div className="mt-16 mb-16">
+                    <div className="border border-mystic-gold/20 bg-gradient-to-br from-[#1a3a4a] to-[#0d2530] p-8 md:p-12">
+                        {/* Logo and Header */}
+                        <div className="flex flex-col items-center mb-12">
+                            <img
+                                src="/rishi-logo.png"
+                                alt="Rishi Tea & Botanicals"
+                                className="h-24 md:h-32 object-contain mb-6"
+                            />
+                            <p className="text-mystic-text/60 text-sm text-center italic max-w-2xl">
+                                Proudly serving Rishi Tea & Botanicals — Direct Trade importers of premium, organic teas and botanicals from gardens across the world.
+                            </p>
+                        </div>
+
+                        {/* Brand Values Grid */}
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            {/* Certified Organic */}
+                            <div className="text-center p-6 border border-white/5 bg-mystic-dark/30 hover:border-mystic-gold/20 transition-all duration-500">
+                                <div className="text-3xl mb-4">🌿</div>
+                                <h4 className="text-mystic-gold font-serif text-lg uppercase tracking-widest mb-4">Certified Organic</h4>
+                                <p className="text-mystic-text/60 text-sm leading-relaxed">
+                                    Organic teas are healthier for the planet and people who grow, craft and enjoy steeping them. That's why over 95% of Rishi's ingredients are certified organic.
+                                </p>
+                            </div>
+
+                            {/* Direct Trade */}
+                            <div className="text-center p-6 border border-white/5 bg-mystic-dark/30 hover:border-mystic-gold/20 transition-all duration-500">
+                                <div className="text-3xl mb-4">🤝</div>
+                                <h4 className="text-mystic-gold font-serif text-lg uppercase tracking-widest mb-4">Direct Trade</h4>
+                                <p className="text-mystic-text/60 text-sm leading-relaxed">
+                                    Ethically sourced directly from artisan tea and botanical farmers around the world. Deep relationships are the foundation of the authentic tea experiences you can expect from Rishi.
+                                </p>
+                            </div>
+
+                            {/* Beautiful Ingredients */}
+                            <div className="text-center p-6 border border-white/5 bg-mystic-dark/30 hover:border-mystic-gold/20 transition-all duration-500">
+                                <div className="text-3xl mb-4">✨</div>
+                                <h4 className="text-mystic-gold font-serif text-lg uppercase tracking-widest mb-4">Beautiful Ingredients</h4>
+                                <p className="text-mystic-text/60 text-sm leading-relaxed">
+                                    Rishi teas are inspired by equal parts: ancient herbal medicinal traditions and modern culinary innovation. Discover botanicals in exciting, fresh and artfully crafted blends.
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Quote */}
+                        <div className="mt-10 text-center">
+                            <p className="text-mystic-gold/80 italic text-sm font-serif">
+                                "Rishi sources ingredients for its passionately-crafted line of teas through direct trade with artisan growers. Their teas are an ode to the culinary and botanical arts, and you can taste the love."
+                            </p>
+                        </div>
                     </div>
                 </div>
 

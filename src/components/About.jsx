@@ -46,24 +46,27 @@ const About = () => {
 
                 {/* MaeWytch & Robert Section */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 border-t border-white/5 pt-24">
-                    {/* MaeWytch */}
+                    {/* Mae */}
                     <div className="relative group">
                         <div className="aspect-[4/5] overflow-hidden mb-8 relative border border-white/5">
                             <img
-                                src="/IMG_1136.JPEG"
-                                alt="MaeWytch"
+                                src="/mae-wytch.jpg"
+                                alt="Mae - Owner"
                                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                             />
                             <div className="absolute inset-0 bg-mystic-dark/20 group-hover:bg-transparent transition-colors duration-700"></div>
                         </div>
-                        <h2 className="text-3xl font-serif font-bold text-mystic-text mb-2 uppercase tracking-widest">MaeWytch</h2>
-                        <h3 className="text-mystic-gold font-serif text-lg mb-6 italic">Natural Born Witch & Practitioner</h3>
+                        <h2 className="text-3xl font-serif font-bold text-mystic-text mb-2 uppercase tracking-widest">Mae</h2>
+                        <h3 className="text-mystic-gold font-serif text-lg mb-6 italic">Owner & Natural Born Mage</h3>
                         <div className="space-y-4 text-mystic-text/70 text-sm leading-relaxed font-light">
                             <p>
-                                Practicing since age 12, Mae blends Eastern and Western ancestral wisdom from her travels through Turkey and Iran with modern techniques.
+                                A natural born mage who has practiced the craft for over 20 years with a deep pull towards the occult. She brews teas and potions with lots of love.
                             </p>
                             <p>
-                                She offers tarot, palm readings, and knot magick by appointment, accompanied by her familiar Ted.
+                                Currently pursuing her Masters in Mindfulness-Based Transpersonal Counseling at Naropa University, Mae began her journey understanding the mind at age 9 through transcendental meditation. At 18, she became CELTA certified through Cambridge and taught English as a foreign language in the Middle East. At 23, she earned her Bachelor's in History from CU Denver.
+                            </p>
+                            <p>
+                                Today, she uses her knowledge from the East and West to help those around her attain spiritual, emotional, and physical healing. She offers readings, guided meditations, and knot magick to those who come seeking guidance.
                             </p>
                         </div>
                     </div>
@@ -72,7 +75,7 @@ const About = () => {
                     <div className="relative group lg:mt-24">
                         <div className="aspect-[4/5] overflow-hidden mb-8 relative border border-white/5">
                             <img
-                                src="https://images.unsplash.com/photo-1544022613-e87ca75a784a?q=80&w=800&auto=format&fit=crop"
+                                src="/robert-herzberg.jpg"
                                 alt="Robert Herzberg"
                                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                             />
