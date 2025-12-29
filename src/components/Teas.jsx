@@ -45,24 +45,27 @@ const Teas = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 className="section-title">Teas + More</h2>
 
-                <div className="flex flex-col lg:flex-row gap-12 items-start mb-16">
-                    <div className="lg:w-1/3">
+                <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 items-start mb-16">
+                    {/* Tea Jars Image */}
+                    <div className="lg:col-span-1">
                         <img
                             src="/tea-jars.png"
                             alt="Tea Jars Collection"
                             className="w-full h-[400px] object-cover border border-white/5 grayscale hover:grayscale-0 transition-all duration-700"
                         />
                     </div>
-                    <div className="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-8">
-                        {teaMenu.map((cat, idx) => (
-                            <div key={idx} className="relative p-8 border border-white/5 bg-mystic-dark/20 hover:border-mystic-gold/20 transition-all duration-700 group">
-                                <div className="text-3xl mb-6 opacity-80 group-hover:opacity-100 transition-opacity">{cat.icon}</div>
-                                <h3 className="text-xl font-serif font-bold text-mystic-text mb-8 uppercase tracking-widest border-b border-mystic-gold/10 pb-4">{cat.category}</h3>
 
-                                <div className="space-y-6">
+                    {/* Tea Categories Grid */}
+                    <div className="lg:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-6">
+                        {teaMenu.map((cat, idx) => (
+                            <div key={idx} className="relative p-6 border border-white/5 bg-mystic-dark/20 hover:border-mystic-gold/20 transition-all duration-700 group h-full">
+                                <div className="text-2xl mb-4 opacity-80 group-hover:opacity-100 transition-opacity">{cat.icon}</div>
+                                <h3 className="text-lg font-serif font-bold text-mystic-text mb-6 uppercase tracking-widest border-b border-mystic-gold/10 pb-3">{cat.category}</h3>
+
+                                <div className="space-y-4">
                                     {cat.items.map((item, i) => (
                                         <div key={i}>
-                                            <h4 className="text-mystic-gold font-serif text-lg mb-1">{item.name}</h4>
+                                            <h4 className="text-mystic-gold font-serif text-base mb-1">{item.name}</h4>
                                             {item.desc && <p className="text-mystic-text/50 text-xs italic leading-relaxed">{item.desc}</p>}
                                         </div>
                                     ))}

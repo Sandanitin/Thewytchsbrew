@@ -13,6 +13,8 @@ const Services = () => {
                 { name: 'Relationship Reading', desc: 'Clarity on feelings, intentions, and potential outcomes.' },
                 { name: 'Career & Life Path', desc: 'Guidance for direction, purpose, and next steps.' },
                 { name: '12-Month Forecast', desc: 'A month-by-month look into the year ahead.' },
+                { name: 'Knot Magick', desc: 'Sacred knot tying rituals for intention binding and manifestation.' },
+                { name: 'Egg Cleansing and Reading', desc: 'Traditional limpia for spiritual cleansing and energy reading.' },
             ]
         },
         {
@@ -59,7 +61,7 @@ const Services = () => {
                                 ))}
                             </div>
 
-                            <button className="mt-auto pt-12 w-full py-3 border border-mystic-gold/20 text-mystic-gold hover:bg-mystic-gold hover:text-mystic-dark transition-all duration-500 uppercase tracking-widest text-xs font-bold">
+                            <button className="mt-auto pt-12 w-full py-4 px-6 border border-mystic-gold/20 text-mystic-gold hover:bg-mystic-gold hover:text-mystic-dark transition-all duration-500 uppercase tracking-widest text-sm font-bold">
                                 Reserve Session
                             </button>
                         </div>
