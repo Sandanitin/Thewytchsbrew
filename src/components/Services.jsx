@@ -61,9 +61,9 @@ const Services = () => {
                                 ))}
                             </div>
 
-                            <button className="mt-auto pt-12 w-full py-4 px-6 border border-mystic-gold/20 text-mystic-gold hover:bg-mystic-gold hover:text-mystic-dark transition-all duration-500 uppercase tracking-widest text-sm font-bold">
+                            <a href="#events" className="mt-auto w-full py-4 px-6 border border-mystic-gold/40 rounded text-mystic-gold hover:bg-mystic-gold hover:text-mystic-dark transition-all duration-500 uppercase tracking-widest text-sm font-bold block text-center">
                                 Reserve Session
-                            </button>
+                            </a>
                         </div>
                     ))}
                 </div>

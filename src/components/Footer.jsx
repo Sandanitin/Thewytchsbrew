@@ -16,9 +16,8 @@ const Footer = () => {
                             A cozy tea room and metaphysical haven where every cup is crafted with intention and every item carries a touch of magic.
                         </p>
                         <div className="flex space-x-4">
-                            <a href="#" className="text-mystic-text hover:text-mystic-gold transition-colors"><FaFacebook size={20} /></a>
-                            <a href="#" className="text-mystic-text hover:text-mystic-gold transition-colors"><FaInstagram size={20} /></a>
-                            <a href="#" className="text-mystic-text hover:text-mystic-gold transition-colors"><FaTwitter size={20} /></a>
+                            <a href="https://www.facebook.com/profile.php?id=61583649644302" target="_blank" rel="noopener noreferrer" className="text-mystic-text hover:text-mystic-gold transition-colors"><FaFacebook size={20} /></a>
+                            <a href="https://www.instagram.com/thewytchsbrew/" target="_blank" rel="noopener noreferrer" className="text-mystic-text hover:text-mystic-gold transition-colors"><FaInstagram size={20} /></a>
                         </div>
                     </div>
 
