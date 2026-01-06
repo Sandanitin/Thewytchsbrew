@@ -55,7 +55,7 @@ const Navbar = () => {
                     <div className="md:hidden flex items-center">
                         <button
                             onClick={() => setIsOpen(!isOpen)}
-                            className="text-mystic-text hover:text-mystic-gold focus:outline-none"
+                            className="text-mystic-text hover:text-mystic-gold focus:outline-none p-2 rounded-md hover:bg-white/5 transition-colors"
                         >
                             {isOpen ? <HiX className="h-6 w-6" /> : <HiMenu className="h-6 w-6" />}
                         </button>

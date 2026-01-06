@@ -9,7 +9,11 @@ const Footer = () => {
                     {/* Brand */}
                     <div className="col-span-1 md:col-span-1">
                         <div className="flex items-center gap-3 mb-6">
-                            <span className="text-3xl">☕</span>
+                            <img 
+                                src="/logo.png" 
+                                alt="The Wytch's Brew Logo" 
+                                className="h-10 w-10 object-contain"
+                            />
                             <h3 className="text-2xl font-serif font-bold text-mystic-text tracking-wider">The Wytch's Brew</h3>
                         </div>
                         <p className="text-mystic-text/60 text-sm leading-relaxed mb-6 font-light">
